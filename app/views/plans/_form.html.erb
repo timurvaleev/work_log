@@ -1,0 +1,26 @@
+
+  <div class="group">
+    <%= f.label :date_for, t("activerecord.attributes.plan.date_for", :default => "Date for"), :class => :label %>
+    <%= f.date_select :date_for, :class => 'date_select' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :report_log, t("activerecord.attributes.plan.report_log", :default => "Report log"), :class => :label %>
+    <%= f.text_area :report_log, :class => 'text_area' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :actual_log, t("activerecord.attributes.plan.actual_log", :default => "Actual log"), :class => :label %>
+    <%= f.text_area :actual_log, :class => 'text_area' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), plans_path, :class => "text_button_padding link_button" %>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date_for: 2011-07-20
+  actual_log: MyText
+  report_log: MyText
+
+two:
+  date_for: 2011-07-20
+  actual_log: MyText
+  report_log: MyText

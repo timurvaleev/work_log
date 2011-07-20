@@ -1,4 +1,7 @@
 WorkLog::Application.routes.draw do
+  root :to => "plans#index"
+  resources :plans
+
   devise_for :users
 
   # The priority is based upon order of creation:
