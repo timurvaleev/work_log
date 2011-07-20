@@ -1,7 +1,8 @@
 class PlansController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
-    @plans = Plan.all.paginate(params)
+    @plans = current_user.plans.paginate(params)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,7 +11,7 @@ class PlansController < ApplicationController
   end
 
   def show
-    @plan = Plan.find(params[:id])
+    @plan = current_user.plans.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -19,7 +20,7 @@ class PlansController < ApplicationController
   end
 
   def new
-    @plan = Plan.new
+    @plan = current_user.plans.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -28,11 +29,11 @@ class PlansController < ApplicationController
   end
 
   def edit
-    @plan = Plan.find(params[:id])
+    @plan = current_user.plans.find(params[:id])
   end
 
   def create
-    @plan = Plan.new(params[:plan])
+    @plan = current_user.plans.new(params[:plan])
 
     respond_to do |format|
       if @plan.save
@@ -46,7 +47,7 @@ class PlansController < ApplicationController
   end
 
   def update
-    @plan = Plan.find(params[:id])
+    @plan = current_user.plans.find(params[:id])
 
     respond_to do |format|
       if @plan.update_attributes(params[:plan])
@@ -60,7 +61,7 @@ class PlansController < ApplicationController
   end
 
   def destroy
-    @plan = Plan.find(params[:id])
+    @plan = current_user.plans.find(params[:id])
     @plan.destroy
 
     respond_to do |format|

@@ -4,12 +4,12 @@
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", plans_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_plan_path %></li>
     </ul>
-  </div>          
-  <div class="content">          
+  </div>
+  <div class="content">
     <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Plans</h2>
     <div class="inner">
       <table class="table">
-        <tr>             
+        <tr>
           <th class="first">ID</th>
                     <th>
             <%= t("activerecord.attributes.plan.date_for", :default => t("activerecord.labels.date_for", :default => "Date_for")) %>
@@ -26,22 +26,22 @@
             <%= link_to plan.date_for, plan_path(plan) %>
           </td>
                     <td>
-            <%= plan.created_at %>
+            <%= plan.date_for %>
           </td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", plan_path(plan) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_plan_path(plan) %> |
             <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", plan_path(plan), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
-        </tr>          
+        </tr>
         <% end -%>
       </table>
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
-        
+
         <%= will_paginate @plans  %>
-        
+
       </div>
     </div>
   </div>
