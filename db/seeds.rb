@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+User.destroy_all
+
+emails = %w[albert.gazizov@flatsoft.com anton.rogov@flatsoft.com dilyara.serazutdinova@flatsoft.com ilnur.yakupov@flatsoft.com leonid.dinershtein@flatsoft.com  timur.valeev@flatsoft.com dmitry.trager@flatsoft.com ruslan.gatiyatov@flatsoft.com ]
+
+emails.each do |email|
+  User.create!(
+    :email => email,
+    :password => '123456',
+    :password_confirmation => '123456'
+  )
+end
