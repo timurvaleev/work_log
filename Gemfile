@@ -32,3 +32,7 @@ gem "devise"
 gem "jquery-rails"
 gem "bson_ext"
 gem "mongoid", ">= 2.0.0.beta.19"
+
+group :development, :test do
+  gem 'web-app-theme', '>= 0.6.2'
+end

@@ -84,6 +84,7 @@ GEM
     tzinfo (0.3.29)
     warden (1.0.4)
       rack (>= 1.0)
+    web-app-theme (0.6.3)
 
 PLATFORMS
   ruby
@@ -94,3 +95,4 @@ DEPENDENCIES
   jquery-rails
   mongoid (>= 2.0.0.beta.19)
   rails (= 3.0.9)
+  web-app-theme (>= 0.6.2)
