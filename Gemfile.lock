@@ -85,6 +85,7 @@ GEM
     warden (1.0.4)
       rack (>= 1.0)
     web-app-theme (0.6.3)
+    will_paginate (2.3.15)
 
 PLATFORMS
   ruby
@@ -96,3 +97,4 @@ DEPENDENCIES
   mongoid (>= 2.0.0.beta.19)
   rails (= 3.0.9)
   web-app-theme (>= 0.6.2)
+  will_paginate
