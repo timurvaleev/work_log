@@ -20,14 +20,16 @@ end
 
 Plan.destroy_all
 
-def create_plan(user, date, actual_plan)
+def create_plan(user, date, actual_plan = '', report = '')
   user.plans.create(
     :date_for => date,
-    :actual_log => actual_plan
+    :actual_log => actual_plan,
+    :report_log => report
   )
 end
 
 Dir['db/reports/*.rb'].each do |file|
+  puts "Seeding #{file.split('/').last.gsub('.rb', '').capitalize}'s report..."
   require file
 end
-
+puts 'Done'
