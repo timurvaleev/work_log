@@ -2,7 +2,7 @@ class PlansController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @plans = current_user.plans.paginate(params)
+    @plans = current_user.plans.desc(:date_for).paginate(params)
 
     respond_to do |format|
       format.html # index.html.erb

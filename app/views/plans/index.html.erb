@@ -1,38 +1,24 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", plans_path  %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Plans")}", plans_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_plan_path %></li>
     </ul>
   </div>
   <div class="content">
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Plans</h2>
+    <h2 class="title"><%= t("web-app-theme.my", :default => "My")  %> Plans</h2>
     <div class="inner">
       <table class="table">
         <tr>
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.plan.date_for", :default => t("activerecord.labels.date_for", :default => "Date_for")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
-          <th class="last">&nbsp;</th>
+          <th><%= t("activerecord.attributes.plan.date_for", :default => t("activerecord.labels.date_for", :default => "Date")) %></th>
+          <th><%= t("activerecord.attributes.plan.actual_log", :default => t("activerecord.labels.actual_log", :default => "Actual log")) %></th>
+          <th class="last"><%= t("activerecord.attributes.plan.report_log", :default => t("activerecord.labels.report_log", :default => "Report log")) %></th>
         </tr>
         <% @plans.each do |plan| -%>
         <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= plan.id %>
-          </td>
-                    <td>
-            <%= link_to plan.date_for, plan_path(plan) %>
-          </td>
-                    <td>
-            <%= plan.date_for %>
-          </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", plan_path(plan) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_plan_path(plan) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", plan_path(plan), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
+          <td><%= link_to plan.date_for, plan_path(plan) %></td>
+          <td><%= pp plan.actual_log %></td>
+          <td class="last"><%= pp plan.report_log %></td>
         </tr>
         <% end -%>
       </table>
