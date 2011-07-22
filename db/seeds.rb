@@ -17,3 +17,17 @@ emails.each do |email|
     :password_confirmation => '123456'
   )
 end
+
+Plan.destroy_all
+
+def create_plan(user, date, actual_plan)
+  user.plans.create(
+    :date_for => date,
+    :actual_log => actual_plan
+  )
+end
+
+Dir['db/reports/*.rb'].each do |file|
+  require file
+end
+
