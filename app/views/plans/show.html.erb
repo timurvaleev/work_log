@@ -1,42 +1,31 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", plans_path  %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.dashboard", :default => "Dashboard")}", dashboard_plans_path  %></li>
+      <li class=""><%= link_to "#{t("web-app-theme.my_plans", :default => "My Plans")}", plans_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_plan_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", plan_path %></li>
     </ul>
-  </div>          
+  </div>
   <div class="content">
     <div class="inner">
-      
+      <h3><%= l(@plan.date_for, :format => :long) %></h3>
         <p>
-          <b><%= t("activerecord.attributes.plan.date_for", :default => t("activerecord.labels.date_for", :default => "Date for")) %>:</b>
-          <%= @plan.date_for %>
+          <b><%= t("activerecord.attributes.plan.actual_log", :default => t("activerecord.labels.actual_log", :default => "Actual log")) %>:</b><br/>
+          <pre><%= @plan.actual_log   %></pre>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.plan._id", :default => t("activerecord.labels._id", :default => "")) %>:</b>
-          <%= @plan._id %>
+          <b><%= t("activerecord.attributes.plan.report_log", :default => t("activerecord.labels.report_log", :default => "Report log")) %>:</b><br/>
+          <pre><%= @plan.report_log %></pre>
+        </p>
+        <p>
         </p>
 
-        <p>
-          <b><%= t("activerecord.attributes.plan.report_log", :default => t("activerecord.labels.report_log", :default => "Report log")) %>:</b>
-          <%= @plan.report_log %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.plan._type", :default => t("activerecord.labels._type", :default => " type")) %>:</b>
-          <%= @plan._type %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.plan.actual_log", :default => t("activerecord.labels.actual_log", :default => "Actual log")) %>:</b>
-          <%= @plan.actual_log %>
-        </p>
       <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_plan_path(@plan), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_plan_path(@plan), :class => "button" %>
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), plan_path(@plan), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-      </div>      
+      </div>
     </div>
   </div>
 </div>

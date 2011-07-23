@@ -1,8 +1,9 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Plans")}", plans_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_plan_path %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.dashboard", :default => "Dashboard")}", dashboard_plans_path  %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.my_plans", :default => "My Plans")}", plans_path  %></li>
+      <li class="last"><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_plan_path %></li>
     </ul>
   </div>
   <div class="content">

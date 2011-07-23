@@ -1,12 +1,13 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", plans_path  %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.dashboard", :default => "Dashboard")}", dashboard_plans_path  %></li>
+      <li class=""><%= link_to "#{t("web-app-theme.my_plans", :default => "My Plans")}", plans_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_plan_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_plan_path %></li>
     </ul>
-  </div>          
-  <div class="content">            
+  </div>
+  <div class="content">
     <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> Plan</h2>
     <div class="inner">
       <%= form_for @plan, :url => plan_path(@plan), :html => { :class => :form } do |f| -%>

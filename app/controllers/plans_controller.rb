@@ -1,6 +1,26 @@
 class PlansController < ApplicationController
   before_filter :authenticate_user!
 
+  def dashboard
+    @plans = current_user.plans.last_two
+  end
+
+  def multiple_update
+    params[:plans].each do |id, data|
+      plan = current_user.plans.criteria.for_ids(id).first
+      if plan
+        plan.update_attributes(data)
+      else
+        plan = current_user.plans.create(data.merge(:date_for =>Date.today))
+      end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to(dashboard_plans_url, :notice => 'Plan was successfully updated.') }
+      format.xml  { head :ok }
+    end
+  end
+
   def index
     @plans = current_user.plans.desc(:date_for).paginate(params)
 

@@ -1,6 +1,12 @@
 WorkLog::Application.routes.draw do
-  root :to => "plans#index"
-  resources :plans
+  root :to => "plans#dashboard"
+  resources :plans do
+    collection do
+      get :dashboard
+      post :multiple_update
+    end
+  end
+
 
   devise_for :users
 
