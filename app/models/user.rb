@@ -6,4 +6,8 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :plans
+
+  def name
+    email.split('@').first.split('.').map(&:capitalize).join(' ')
+  end
 end

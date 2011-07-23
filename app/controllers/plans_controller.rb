@@ -3,6 +3,12 @@ class PlansController < ApplicationController
 
   def dashboard
     @plans = current_user.plans.last_two
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @plans }
+      format.txt
+    end
+
   end
 
   def multiple_update
