@@ -7,15 +7,16 @@ module PlansHelper
   end
 
   def format_date(date)
-    s = ''
+    "#{week_day(date)} (#{date.strftime("%d/%m/%Y")}):"
+  end
+
+  def week_day(date)
     if date.today?
-      s += 'Today'
+      'Today'
     elsif (date + 1.day).today?
-      s += 'Yesterday'
+      'Yesterday'
     else
-      s += date.strftime("%A")
+      date.strftime("%A")
     end
-    s += " (#{date.strftime("%d/%m/%Y")}):"
-    s
   end
 end

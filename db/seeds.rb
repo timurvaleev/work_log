@@ -24,7 +24,8 @@ def create_plan(user, date, actual_plan = '', report = '', extra_hours = '')
   user.plans.create(
     :date_for => date,
     :actual_log => actual_plan,
-    :report_log => report
+    :report_log => report,
+    :extra_hours => extra_hours
   )
 end
 

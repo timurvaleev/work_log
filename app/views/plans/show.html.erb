@@ -16,6 +16,11 @@
         </p>
 
         <p>
+          <b><%= t("activerecord.attributes.plan.extra_hours", :default => t("activerecord.labels.extra_hours", :default => "Extra hours")) %>:</b><br/>
+          <pre><%= @plan.extra_hours   %></pre>
+        </p>
+
+        <p>
           <b><%= t("activerecord.attributes.plan.report_log", :default => t("activerecord.labels.report_log", :default => "Report log")) %>:</b><br/>
           <pre><%= @plan.report_log %></pre>
         </p>

@@ -15,13 +15,24 @@
             <%= f.fields_for plan.id.to_s, plan do |plan_fields| %>
               <li>
                 <div class="left">
-                  <h3><%= plan.date_for.today? ? 'Today' : 'Yesterday' %></h3>
+                  <h3><%= week_day(plan.date_for) %></h3>
                   <%= l(plan.date_for, :format => :short) %>
                 </div>
                 <div class="item">
-                  <%= plan_fields.text_area :actual_log, :size => '70x5' %>
+                  <%= plan_fields.text_area :actual_log, :size => '70x5' %><br/>
                 </div>
               </li>
+              <% if plan == @plans.last %>
+              <li>
+                <div class="left">
+                  <h3><%= link_to_function "Extra hours", "$('#extra_hours').toggle();"%></h3>
+                </div>
+                <div id="extra_hours" class="item">
+                  <%= plan_fields.text_area :extra_hours, :size => '70x5' %><br/>
+                </div>
+              </li>
+              <% end %>
+              <li></li>
             <% end %>
           <% end %>
         </ul>
@@ -36,3 +47,11 @@
 </div>
 
 <% content_for :sidebar, render(:partial => 'sidebar') -%>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#extra_hours").hide();
+});
+</script>
+
+

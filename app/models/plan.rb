@@ -5,6 +5,7 @@ class Plan
   field :date_for, :type => Date
   field :actual_log, :type => String
   field :report_log, :type => String
+  field :extra_hours, :type => String
 
   belongs_to :user
 
