@@ -422,8 +422,7 @@ Cinetis:
 
 create_plan(user,
 '2011-07-19',
-"-- вникал в decide.it ~ 1h
--- #1384 ~ 1h
+"-- #1384 ~ 1h
 -- #1327 ~ 40min
 -- retrospective ~ 1.5h",
 "-- #1384 = 3h
