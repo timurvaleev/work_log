@@ -10,4 +10,12 @@ class User
   def name
     email.split('@').first.split('.').map(&:capitalize).join(' ')
   end
+
+  def can_manage?
+    if email =~ /dilyara/
+      true
+    else
+      false
+    end
+  end
 end

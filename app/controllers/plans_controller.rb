@@ -2,22 +2,36 @@ class PlansController < ApplicationController
   before_filter :authenticate_user!
 
   def dashboard
+    redirect_to(overview_plans_url) && return if current_user.can_manage?
     @plans = current_user.plans.last_two
     respond_to do |format|
       format.html
       format.xml  { render :xml => @plans }
       format.txt
     end
-
   end
+
+  def overview
+    @users = User.where(:email.ne => current_user.email)
+  end
+
+
 
   def multiple_update
     params[:plans].each do |id, data|
-      plan = current_user.plans.criteria.for_ids(id).first
+      if current_user.can_manage?
+        plan = Plan.criteria.for_ids(id).first
+      else
+        plan = current_user.plans.criteria.for_ids(id).first
+      end
       if plan
         plan.update_attributes(data)
       else
-        plan = current_user.plans.create(data.merge(:date_for =>Date.today))
+        if current_user.can_manage?
+          plan = Plan.create(data.merge(:date_for =>Date.today))
+        else
+          plan = current_user.plans.create(data.merge(:date_for =>Date.today))
+        end
       end
     end
 

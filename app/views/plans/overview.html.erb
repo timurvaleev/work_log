@@ -1,0 +1,40 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.overview", :default => "Overview")}", overview_plans_path  %></li>
+    </ul>
+  </div>
+  <div class="content">
+  <%= form_for :plans, :url => multiple_update_plans_path, :html => { :class => :form } do |f| -%>
+    <% @users.each do |user|%>
+      <h2 class="title"><%= user.name %></h2>
+      <div class="inner">
+        <ul class="list">
+          <% user.plans.last_two.each do |plan| %>
+            <%= f.fields_for plan.id.to_s, plan do |plan_fields| %>
+              <li>
+                <div class="left">
+                  <h3><%= week_day(plan.date_for) %></h3>
+                  <%= l(plan.date_for, :format => :short) %>
+                </div>
+                <div class="item">
+                  <%= plan_fields.hidden_field(:user_id, :value => user.id) unless plan.persisted? %>
+                  <%= plan_fields.text_area :actual_log, :size => '34x5', :style => "float:left"%>
+                  <%= plan_fields.text_area :report_log, :size => '34x5', :value => plan.report_log? ? plan.report_log : plan.actual_log %>
+                </div>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <div class="group navform wat-cf">
+        <button class="button" type="submit">
+          <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.update", :default => "Update")}") %> <%= t("web-app-theme.update", :default => "Update") %>
+        </button>
+      </div>
+
+  <% end %>
+</div>
+</div>
+

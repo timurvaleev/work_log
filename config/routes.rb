@@ -3,6 +3,7 @@ WorkLog::Application.routes.draw do
   resources :plans do
     collection do
       get :dashboard
+      get :overview
       post :multiple_update
     end
   end
