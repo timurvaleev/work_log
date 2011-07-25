@@ -33,6 +33,8 @@ gem "jquery-rails"
 gem "bson_ext"
 gem "mongoid", ">= 2.0.0.beta.19"
 gem "will_paginate"
+gem "heroku"
+gem "rake", "0.8.7"
 
 group :development, :test do
   gem 'web-app-theme', '>= 0.6.2'
