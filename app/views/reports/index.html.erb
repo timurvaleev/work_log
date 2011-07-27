@@ -1,16 +1,16 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "Daily plan", report_index_path  %></li>
+      <li class="first active"><%= link_to "Daily plan", reports_index_path %></li>
     </ul>
   </div>
   <div class="content">
-  <%= form_for :plans, :url => reports_multiple_update_path, :html => { :class => :form } do |f| -%>
+  <%= form_for :plans, :url => multiple_update_plans_path, :html => { :class => :form } do |f| -%>
     <% @users.each do |user|%>
       <h2 class="title"><%= user.name %></h2>
       <div class="inner">
         <ul class="list">
-          <% user.plans.last_two.each do |plan| %>
+          <% user.plans.last_two.reverse.each do |plan| %>
             <%= f.fields_for plan.id.to_s, plan do |plan_fields| %>
               <li>
                 <div class="left">

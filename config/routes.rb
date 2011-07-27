@@ -1,4 +1,7 @@
 WorkLog::Application.routes.draw do
+  get "reports/index"
+  post "reports/multiple_update"
+
   root :to => "plans#dashboard"
   resources :plans do
     collection do

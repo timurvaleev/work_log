@@ -18,7 +18,10 @@
         </ul>
       </div>
       <div id="main-navigation">
-        <ul class="wat-cf"></ul>
+        <ul class="wat-cf">
+          <li class="first <%= 'active' if controller.is_a?(PlansController)%>"><%= link_to "Plans", dashboard_plans_path%></li>
+          <li class="<%= 'active' if controller.is_a?(ReportsController)%>"><%= link_to "Reports", reports_index_path%></li>
+        </ul>
       </div>
     </div>
     <div id="wrapper" class="wat-cf">
