@@ -23,7 +23,7 @@ class Plan
     end
 
     def last_two
-      [today, yesterday]
+      [yesterday, today]
     end
 
   end
