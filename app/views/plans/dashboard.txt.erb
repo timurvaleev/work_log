@@ -3,7 +3,8 @@ Actual Log (skype)
 <% @plans.each do |plan| -%>
 <%= "Extra Hours:\n#{plan.extra_hours}\n\n" if plan.extra_hours.present? -%>
 <%= format_date(plan.date_for) %>
-<%= plan.actual_log %>
+<%= raw plan.actual_log %>
+
 <% end -%>
 
 ----------------------------------------------------
@@ -13,5 +14,6 @@ Report Log (campfire)
 <% @plans.each do |plan| -%>
 <%= "Extra Hours:\n#{plan.extra_hours}\n\n" if plan.extra_hours.present? -%>
 <%= format_date(plan.date_for) %>
-<%= plan.report_log %>
+<%= raw plan.report_log %>
+
 <% end -%>
