@@ -39,4 +39,5 @@ gem "rake", "0.8.7"
 group :development, :test do
   gem 'web-app-theme', '>= 0.6.2'
   gem 'rspec-rails'
+  gem 'mongoid-rspec'
 end

@@ -19,4 +19,11 @@ module PlansHelper
       date.strftime("%A")
     end
   end
+
+  def pretty_text(text)
+    text = text.to_s
+    lines = text.split("\n")
+    lines.delete_if{|line| line.strip.blank?}
+    lines.join("\n")
+  end
 end
