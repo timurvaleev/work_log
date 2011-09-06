@@ -17,7 +17,7 @@
         <% @plans.each do |plan| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td><%= link_to plan.date_for, edit_plan_path(plan) %></td>
-          <td class=""><%= content_tag :pre, pretty_text(plan.actual_log) %></td>
+          <td><%= raw pretty_text(plan.actual_log, "<br/>") %></td>
         </tr>
         <% end -%>
       </table>

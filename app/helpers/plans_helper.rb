@@ -20,10 +20,10 @@ module PlansHelper
     end
   end
 
-  def pretty_text(text)
+  def pretty_text(text, delimiter = "\n")
     text = text.to_s
     lines = text.split("\n")
     lines.delete_if{|line| line.strip.blank?}
-    lines.join("\n")
+    lines.join(delimiter)
   end
 end
