@@ -19,20 +19,16 @@
                   <%= l(plan.date_for, :format => :short) %>
                 </div>
                 <div class="item">
-                  <%= plan_fields.text_area :actual_log, :size => '70x5' %><br/>
+		              <h4>Actual Log</h4>
+                  <%= plan_fields.text_area :actual_log, :size => '70x5' %>
+                  <% if plan == @plans.first %>
+                    <h4><%= link_to_function "Report Log", "$('##{dom_id(plan, :report_log)}').toggle();"%></h4>
+                    <%= plan_fields.text_area :report_log, :size => '70x5', :style => 'display:none', :id => dom_id(plan, :report_log) %>
+                    <h4><%= link_to_function "Extra Hours", "$('##{dom_id(plan, :extra_hours)}').toggle();"%></h4>
+                    <%= plan_fields.text_area :extra_hours, :size => '70x5', :style => 'display:none', :id => dom_id(plan, :extra_hours) %>
+                  <% end %>
                 </div>
               </li>
-              <% if plan == @plans.last %>
-              <li>
-                <div class="left">
-                  <h3><%= link_to_function "Extra hours", "$('#extra_hours').toggle();"%></h3>
-                </div>
-                <div id="extra_hours" class="item">
-                  <%= plan_fields.text_area :extra_hours, :size => '70x5' %><br/>
-                </div>
-              </li>
-              <% end %>
-              <li></li>
             <% end %>
           <% end %>
         </ul>
